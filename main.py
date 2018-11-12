@@ -2,6 +2,7 @@
 from ev3dev.ev3 import *
 
 def main():
+	print("Five in the main!")
     return True
 
 if __name__ == "__main__":
