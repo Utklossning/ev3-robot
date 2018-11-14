@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
 
+RUN_SIMULATION = True  # Change to False to run on real robot.
+
 # NATIVE IMPORTS
 from math import pi
 
 # THIRT PARTY IMPORTS
-from ev3dev2.motor import \
-    LargeMotor, SpeedRPS, MoveSteering, \
-    OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D
-from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
-from ev3dev2.sensor.lego import TouchSensor, UltrasonicSensor, ColorSensor
-from ev3dev2.sound import Sound
+if not RUN_SIMULATION:
+    from ev3dev2.motor import \
+        LargeMotor, MoveSteering, \
+        OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D
+    from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
+    from ev3dev2.sensor.lego import TouchSensor, UltrasonicSensor, ColorSensor
+    from ev3dev2.sound import Sound
+
+# LOCAL IMPORTS
+if RUN_SIMULATION:
+    from simulation import *
 
 # CONSTANTS
 FORWARD = 0
@@ -19,8 +26,8 @@ RIGHT_ROTATION = 100
 # DEFINITIONS
 class Bot:
     def __init__(self, wheel_radius, wheel_spacing):
-        self._left_motor = self._init_motor(OUTPUT_A)
-        self._right_motor = self._init_motor(OUTPUT_B)
+        #self._grip_motor = self._init_motor(OUTPUT_C)
+        #self._arm_motor = self._init_motor(OUTPUT_D)
         self._steering_drive = MoveSteering(OUTPUT_A, OUTPUT_B)
         self._touch_sensor = TouchSensor(INPUT_1)
         self._ultrasonic_sensor = UltrasonicSensor(INPUT_2)
@@ -52,19 +59,19 @@ class Bot:
         return distance / (pi*2*self.WHEEL_RADIUS)
 
     def move_forward(self, distance, speed_percent, blocking=True):
-        rots = _cm_movement_to_rotations(distance)
+        rots = self._cm_movement_to_rotations(distance)
         self._steering_drive.on_for_rotations(
             FORWARD, speed_percent, rots, block=blocking)
 
     def rotate_left(self, degrees, speed_percent, blocking=True):
         distance = self.WHEEL_SPACING * pi * degrees / 360
-        rots = _cm_movement_to_rotations(distance)
+        rots = self._cm_movement_to_rotations(distance)
         self._steering_drive.on_for_rotations(
             LEFT_ROTATION, speed_percent, rots, block=blocking)
 
     def rotate_right(self, degrees, speed_percent, blocking=True):
         distance = self.WHEEL_SPACING * pi * degrees / 360
-        rots = _cm_movement_to_rotations(distance)
+        rots = self._cm_movement_to_rotations(distance)
         self._steering_drive.on_for_rotations(
             RIGHT_ROTATION, speed_percent, rots, block=blocking)
 
