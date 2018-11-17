@@ -11,7 +11,7 @@ class Route():
         self.bot.move_forward(23, 50)
         time.sleep(0.5)
         self.bot.empty_container()
-        self.bot.move_backward(23, 50)
+        self.bot.move_backward(23, 75)
         self.bot.rotate_left(35, 30)
         self.bot.move_backward(45, 75)
 

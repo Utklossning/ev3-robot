@@ -13,9 +13,9 @@ class Route():
         self.bot.move_forward(28, 50)
         self.bot.detect_red_tape()
         self.bot.empty_container()
-        self.bot.move_backward(35, 50)
+        self.bot.move_backward(35, 75)
         self.bot.rotate_left(46, 50)
-        self.bot.move_backward(44, 50)
+        self.bot.move_backward(44, 75)
         self.bot.rotate_left(37, 50)
         self.bot.move_backward(50, 75)
     
