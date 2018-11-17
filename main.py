@@ -21,7 +21,7 @@ def main():
         if bot.read_touch_front():
             print("Got front key press, starting route {}".format(routes[current_route].route_number))
             bot.tts("Running route {}".format(routes[current_route].route_number))
-            routes[current_route].start()
+            print("Route {} start returned: {}".format(routes[current_route].route_number, routes[current_route].start()))
         if bot.read_touch_top():
             if current_route == len(routes):
                 current_route = 0
