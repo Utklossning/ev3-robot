@@ -53,11 +53,29 @@ class Bot:
     def read_ultrasonic(self):
         return self._ultrasonic_sensor.distance_centimeters
 
+    def set_color_sensor_reflect(self):
+        self._color_sensor.mode = "COL-REFLECT"
+
+    def set_color_sensor_rgb(self):
+        self._color_sensor.mode = "RGB-RAW"
+
     def read_color(self):
         if self._color_sensor.mode == "RGB-RAW":
             return tuple(map(self._color_sensor.value, [0,1,2]))
         elif self._color_sensor.mode == "COL-REFLECT":
             return self._color_sensor.reflected_light_intensity
+
+    def detect_red_tape(self):
+        tape_found = False
+        self.set_color_sensor_rgb()
+        while not tape_found:
+            self.move_forward(1, 5, blocking=False)
+            red = self.read_color()[0]
+            print("Sensor data:", sens)
+            if sens > 100:
+                line_found = True
+                self.stop()
+        self.set_color_sensor_reflect()
 
     def _cm_movement_to_rotations(self, distance):
         return distance / (pi*2*self.WHEEL_RADIUS) * 1.667
