@@ -10,12 +10,7 @@ from routes.route5 import Route as route5
 
 import bot
 
-<<<<<<< Updated upstream
-
-bot = bot.Bot(wheel_radius=2.3, wheel_spacing=10.5)
-=======
 bot = bot.Bot(wheel_radius=2.3, wheel_spacing=15.5)
->>>>>>> Stashed changes
 
 def main():
     print("Starting the main application")
