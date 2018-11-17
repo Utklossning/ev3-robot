@@ -10,7 +10,7 @@ from routes.route5 import Route as route5
 
 import bot
 
-bot = bot.Bot()
+bot = bot.Bot(wheel_radius=2.3, wheel_spacing=10.5)
 
 def main():
     print("Starting the main application")
