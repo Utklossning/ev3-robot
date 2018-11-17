@@ -1,8 +1,9 @@
 class Route():
-    def __init__(self):
+    def __init__(self, bot):
+        self.bot = bot
         self.route_number = "one"
     
     def start(self):
-        run = True
+       self.bot.move_forward(56.5, 100) 
 
     

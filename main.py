@@ -14,7 +14,7 @@ bot = bot.Bot(wheel_radius=2.3, wheel_spacing=15.5)
 
 def main():
     print("Starting the main application")
-    routes = [route1(), route2(), route3(), route4(), route5()]
+    routes = [route1(bot), route2(), route3(), route4(), route5()]
     print("Loaded routes into list")
     current_route = 0
     bot.wav_processor()

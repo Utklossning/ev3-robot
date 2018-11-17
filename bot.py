@@ -79,7 +79,7 @@ class Bot:
             RIGHT_ROTATION, speed_percent, rots, block=blocking)
 
     def wav_processor(self):
-        self._sound.play('t2_learning_computer_x.wav')
+        self._sound.play('sounds/t2_learning_computer_x.wav')
 
     def tts(self, text):
         self._sound.speak(text, volume=100)
