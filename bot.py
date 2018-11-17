@@ -28,7 +28,8 @@ RIGHT_ROTATION = 100
 class Bot:
     def __init__(self, wheel_radius, wheel_spacing):
         self._container_motor = MediumMotor(OUTPUT_C)
-        self._steering_drive = MoveSteering(OUTPUT_D, OUTPUT_A, ramp_up_sp=1000)
+        self._steering_drive = MoveSteering(OUTPUT_D, OUTPUT_A)
+        self._steering_drive.ramp_up_sp = 1000
         self._touch_sensor_front = TouchSensor(INPUT_1)
         self._touch_sensor_top = TouchSensor(INPUT_2)
         #self._ultrasonic_sensor = UltrasonicSensor(INPUT_2)
