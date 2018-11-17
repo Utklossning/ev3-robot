@@ -27,7 +27,7 @@ def main():
                 bot.move_forward(1, 5, blocking=False)
                 sens = bot.read_color()
                 print("Sensor data:", sens)
-                if sens > 5:
+                if False:
                     line_found = True
                     bot.stop()
             print("Route {} start returned: {}".format(routes[current_route].route_number, routes[current_route].start()))
