@@ -17,7 +17,7 @@ class Route():
         self.bot.rotate_left(90, 50)
         self.bot.move_backward(55, 50)
         self.bot.rotate_left(82, 50)
-        self.bot.move_backward(28, 75)
+        self.bot.move_backward(38, 75)
 
         return True
 
