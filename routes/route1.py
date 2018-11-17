@@ -6,11 +6,10 @@ class Route():
         self.route_number = "one"
     
     def start(self):
-#        self.bot.move_forward(56.5, 50) 
-#        time.sleep(0.5)
-#        self.bot.empty_container()
-#        self.bot.move_backward(60, 50)
-        self.bot.rotate_right(360, 50)
+        self.bot.move_forward(56.5, 50) 
+        time.sleep(0.5)
+        self.bot.empty_container()
+        self.bot.move_backward(60, 50)
         return True
 
     

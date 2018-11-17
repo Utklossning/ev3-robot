@@ -8,9 +8,10 @@ class Route():
     def start(self):
         self.bot.move_forward(34, 50)
         self.bot.rotate_right(90, 30)
-        self.bot.move_forward(60, 50)
-        time.sleep(0.5)
+        self.bot.move_forward(57, 50)
+        self.bot.detect_red_tape()
+        self.bot.move_forward(1, 10)
         self.bot.empty_container()
         self.bot.move_backward(60, 50)
-        self.bot.rotate_left(90, 30)
+        self.bot.rotate_left(85, 30)
         self.bot.move_backward(40, 50)
