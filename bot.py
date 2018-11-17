@@ -69,10 +69,10 @@ class Bot:
         tape_found = False
         self.set_color_sensor_rgb()
         while not tape_found:
-            self.move_forward(1, 5, blocking=False)
+            self.move_forward(1, 10, blocking=False)
             red, green, blue = self.read_color()
             print("red {} green {} blue {}".format(red, green, blue))
-            if red > 100 and green < 50 and blue < 50:
+            if red > 120 and green < 80 and blue < 80:
                 tape_found = True
                 self.stop()
         self.set_color_sensor_reflect()
