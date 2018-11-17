@@ -24,7 +24,7 @@ def main():
             bot.tts("{}".format(routes[current_route].route_number))
             line_found = False
             while not line_found:
-                bot.move_forward(1, 5, blocking=False)
+                bot.move_forward(1, 10, blocking=False)
                 sens = bot.read_color()
                 if sens < 30:
                     line_found = True
