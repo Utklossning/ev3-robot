@@ -33,8 +33,9 @@ class Bot:
         self._touch_sensor_top = TouchSensor(INPUT_2)
         #self._ultrasonic_sensor = UltrasonicSensor(INPUT_2)
         self._color_sensor = ColorSensor(INPUT_3)
+        self._color_sensor.calibrate_white()
         #self._color_sensor.mode = "RGB-RAW"
-        self._color_sensor.mode = "COL-AMBIENT"
+        self._color_sensor.mode = "COL-REFLECT"
         self._leds = Leds()
         self._sound = Sound()
         self.WHEEL_RADIUS = wheel_radius
