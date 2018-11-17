@@ -20,7 +20,7 @@ def main():
     bot.wav_processor()
     while True:
         if bot.read_touch_top():
-            print("Got front key press, starting route {}".format(routes[current_route].route_number))
+            print("Got top key press, starting route {}".format(routes[current_route].route_number))
             #bot.tts("{}".format(routes[current_route].route_number))
             line_found = False
             while not line_found:
@@ -36,8 +36,9 @@ def main():
             else:
                 current_route += 1
 
-            print("Got top key press, changing to route {} ".format(routes[current_route].route_number))
+            print("Got front key press, changing to route {} ".format(routes[current_route].route_number))
             #bot.tts("{}".format(routes[current_route].route_number))
+            time.sleep(1)
 
     time.sleep(0.1)
 
