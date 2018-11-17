@@ -10,14 +10,19 @@ from routes.route5 import Route as route5
 
 import bot
 
+<<<<<<< Updated upstream
 
 bot = bot.Bot(wheel_radius=2.3, wheel_spacing=10.5)
+=======
+bot = bot.Bot(wheel_radius=2.3, wheel_spacing=15.5)
+>>>>>>> Stashed changes
 
 def main():
     print("Starting the main application")
     routes = [route1(), route2(), route3(), route4(), route5()]
     print("Loaded routes into list")
     current_route = 0
+    bot.wav_processor()
     while True:
         if bot.read_touch_front():
             print("Got front key press, starting route {}".format(routes[current_route].route_number))
@@ -37,4 +42,3 @@ def main():
 if __name__ == "__main__":
     bot.tts("Booting up")
     main()
-

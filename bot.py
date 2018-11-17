@@ -36,6 +36,7 @@ class Bot:
         self._color_sensor.mode = "RGB-RAW"
         #self._color_sensor.mode = "RGB-AMBIENT"
         self._leds = Leds()
+        self._sound = Sound()
         self.WHEEL_RADIUS = wheel_radius
         self.WHEEL_SPACING = wheel_spacing
 
@@ -46,7 +47,7 @@ class Bot:
         return self._touch_sensor_front.is_pressed
 
     def read_touch_top(self):
-        return self._touch_sensor_front.is_pressed
+        return self._touch_sensor_top.is_pressed
 
     def read_ultrasonic(self):
         return self._ultrasonic_sensor.distance_centimeters
@@ -78,11 +79,10 @@ class Bot:
             RIGHT_ROTATION, speed_percent, rots, block=blocking)
 
     def wav_processor(self):
-        Sound.play('t2_learning_computer_x.wav')
+        self._sound.play('t2_learning_computer_x.wav')
 
     def tts(self, text):
-        sound = Sound()
-        sound.speak(text, volume=100)
+        self._sound.speak(text, volume=100)
 
     def set_led_color(self, side, color):
         self._leds.set_color(side, color)
