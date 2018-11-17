@@ -10,6 +10,8 @@ from routes.route5 import Route as route5
 
 import bot
 
+bot = Bot()
+
 def main():
     print("Starting the main application")
     routes = [route1, route2, route3, route4, route5]
