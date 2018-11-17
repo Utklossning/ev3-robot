@@ -41,7 +41,7 @@ class Bot:
         self.WHEEL_SPACING = wheel_spacing
 
     def empty_container(self):
-        self._container_motor.on_for_rotations(-20, 2)
+        self._container_motorm.on_for_rotations(100, 5)
 
     def read_touch_front(self):
         return self._touch_sensor_front.is_pressed
@@ -65,6 +65,9 @@ class Bot:
         rots = self._cm_movement_to_rotations(distance)
         self._steering_drive.on_for_rotations(
             FORWARD, -speed_percent, rots, block=blocking)
+
+    def move_backward(self, distance, speed_percent, blocking=True):
+        self.move_forward(distance, -speed_percent, blocking=blocking)
 
     def rotate_left(self, degrees, speed_percent, blocking=True):
         distance = self.WHEEL_SPACING * pi * degrees / 360
