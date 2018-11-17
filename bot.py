@@ -57,7 +57,7 @@ class Bot:
         if self._color_sensor.mode == "RGB-RAW":
             return tuple(map(self._color_sensor.value, [0,1,2]))
         elif self._color_sensor.mode == "RGB-AMBIENT":
-            return self._color_sensor.value()
+            return self._color_sensor.reflected_light_intensity
 
     def _cm_movement_to_rotations(self, distance):
         return distance / (pi*2*self.WHEEL_RADIUS) * 1.667
