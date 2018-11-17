@@ -73,13 +73,13 @@ class Bot:
         distance = self.WHEEL_SPACING * pi * degrees / 360
         rots = self._cm_movement_to_rotations(distance)
         self._steering_drive.on_for_rotations(
-            LEFT_ROTATION, -speed_percent, rots, block=blocking)
+            LEFT_ROTATION, speed_percent, rots, block=blocking)
 
     def rotate_right(self, degrees, speed_percent, blocking=True):
         distance = self.WHEEL_SPACING * pi * degrees / 360
         rots = self._cm_movement_to_rotations(distance)
         self._steering_drive.on_for_rotations(
-            RIGHT_ROTATION, -speed_percent, rots, block=blocking)
+            RIGHT_ROTATION, speed_percent, rots, block=blocking)
 
     def wav_processor(self):
         #self._sound.play('sounds/t2_learning_computer_x.wav')
