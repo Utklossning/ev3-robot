@@ -7,7 +7,6 @@ from routes.route2 import Route as route2
 from routes.route3 import Route as route3
 from routes.route4 import Route as route4
 from routes.route5 import Route as route5
-from routes.route6 import Route as route6
 
 import bot
 
@@ -15,7 +14,7 @@ bot = bot.Bot(wheel_radius=2.74, wheel_spacing=18)
 
 def main():
     print("Starting the main application")
-    routes = [route1(bot), route2(bot), route3(bot), route4(bot), route5(bot), route6(bot)]
+    routes = [route1(bot), route2(bot), route3(bot), route4(bot), route5(bot)]
     print("Loaded routes into list")
     current_route = 0
     bot.wav_processor()
