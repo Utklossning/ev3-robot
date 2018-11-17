@@ -21,7 +21,7 @@ def main():
     while True:
         if bot.read_touch_top():
             print("Got front key press, starting route {}".format(routes[current_route].route_number))
-            bot.tts("{}".format(routes[current_route].route_number))
+            #bot.tts("{}".format(routes[current_route].route_number))
             line_found = False
             while not line_found:
                 bot.move_forward(1, 10, blocking=False)
@@ -37,7 +37,7 @@ def main():
                 current_route += 1
 
             print("Got top key press, changing to route {} ".format(routes[current_route].route_number))
-            bot.tts("{}".format(routes[current_route].route_number))
+            #bot.tts("{}".format(routes[current_route].route_number))
 
     time.sleep(0.1)
 
