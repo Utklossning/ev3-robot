@@ -19,11 +19,11 @@ def main():
     current_route = 0
     bot.wav_processor()
     while True:
-        if bot.read_touch_front():
+        if bot.read_touch_top():
             print("Got front key press, starting route {}".format(routes[current_route].route_number))
             bot.tts("Running route {}".format(routes[current_route].route_number))
             print("Route {} start returned: {}".format(routes[current_route].route_number, routes[current_route].start()))
-        if bot.read_touch_top():
+        if bot.read_touch_front():
             if current_route == len(routes)-1:
                 current_route = 0
             else:
