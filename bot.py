@@ -72,7 +72,7 @@ class Bot:
             self.move_forward(1, 5, blocking=False)
             red = self.read_color()[0]
             if red > 100:
-                line_found = True
+                tape_found = True
                 self.stop()
         self.set_color_sensor_reflect()
 
