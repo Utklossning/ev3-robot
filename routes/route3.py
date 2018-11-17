@@ -6,7 +6,7 @@ class Route():
         self.route_number = "three"
     
     def start(self):
-        self.bot.move_forward(40, 50)
+        self.bot.move_forward(50, 50)
         self.bot.rotate_right(90, 30)
         self.bot.move_forward(15, 50)
         time.sleep(0.5)
