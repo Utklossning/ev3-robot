@@ -82,7 +82,7 @@ class Bot:
 
     def tts(self, text):
         sound = Sound()
-        sound.speak(text)
+        sound.speak(text, volume=100)
 
     def set_led_color(self, side, color):
         self._leds.set_color(side, color)
