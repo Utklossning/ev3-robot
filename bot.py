@@ -59,7 +59,7 @@ class Bot:
             return self._color_sensor.value()
 
     def _cm_movement_to_rotations(self, distance):
-        return distance / (pi*2*self.WHEEL_RADIUS)
+        return distance / (pi*2*self.WHEEL_RADIUS) * 1.667
 
     def move_forward(self, distance, speed_percent, blocking=True):
         rots = self._cm_movement_to_rotations(distance)
