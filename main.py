@@ -38,7 +38,7 @@ def main():
 
             print("Got front key press, changing to route {} ".format(routes[current_route].route_number))
             #bot.tts("{}".format(routes[current_route].route_number))
-            time.sleep(1)
+            sleep(1)
 
     time.sleep(0.1)
 
