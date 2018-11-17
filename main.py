@@ -29,7 +29,7 @@ def main():
             bot.tts("Running route {}".format(routes[current_route].route_number))
             print("Route {} start returned: {}".format(routes[current_route].route_number, routes[current_route].start()))
         if bot.read_touch_top():
-            if current_route == len(routes):
+            if current_route == len(routes)-1:
                 current_route = 0
             else:
                 current_route += 1
