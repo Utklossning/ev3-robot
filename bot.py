@@ -33,7 +33,7 @@ class Bot:
         self._touch_sensor_top = TouchSensor(INPUT_2)
         #self._ultrasonic_sensor = UltrasonicSensor(INPUT_2)
         self._color_sensor = ColorSensor(INPUT_3)
-        self._color_sensor.calibrate_white()
+        #self._color_sensor.calibrate_white()
         #self._color_sensor.mode = "RGB-RAW"
         self._color_sensor.mode = "COL-REFLECT"
         self._leds = Leds()
@@ -56,7 +56,7 @@ class Bot:
     def read_color(self):
         if self._color_sensor.mode == "RGB-RAW":
             return tuple(map(self._color_sensor.value, [0,1,2]))
-        elif self._color_sensor.mode == "RGB-AMBIENT":
+        elif self._color_sensor.mode == "COL-REFLECT":
             return self._color_sensor.reflected_light_intensity
 
     def _cm_movement_to_rotations(self, distance):
