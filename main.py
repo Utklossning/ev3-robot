@@ -22,6 +22,14 @@ def main():
         if bot.read_touch_top():
             print("Got front key press, starting route {}".format(routes[current_route].route_number))
             bot.tts("{}".format(routes[current_route].route_number))
+            line_found = False
+            while not line_found:
+                bot.move_forward(1, 5, blocking=False)
+                sens = bot.read_color()
+                print("Sensor data:", sens)
+                if sens > 5:
+                    line_found = True
+                    bot.stop()
             print("Route {} start returned: {}".format(routes[current_route].route_number, routes[current_route].start()))
         if bot.read_touch_front():
             if current_route == len(routes)-1:
