@@ -41,7 +41,7 @@ class Bot:
         self.WHEEL_SPACING = wheel_spacing
 
     def empty_container(self):
-        self._container_motor.on_for_rotations(-20, 2)
+        self._container_motor.on_for_rotations(-5, 1)
 
     def read_touch_front(self):
         return self._touch_sensor_front.is_pressed
