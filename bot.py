@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-RUN_SIMULATION = True  # Change to False to run on real robot.
+RUN_SIMULATION = False  # Change to False to run on real robot.
 
 # NATIVE IMPORTS
 from math import pi
@@ -13,6 +13,7 @@ if not RUN_SIMULATION:
     from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
     from ev3dev2.sensor.lego import TouchSensor, UltrasonicSensor, ColorSensor
     from ev3dev2.sound import Sound
+    from ev3dev2.led import Leds
 
 # LOCAL IMPORTS
 if RUN_SIMULATION:
@@ -34,6 +35,7 @@ class Bot:
         self._color_sensor = ColorSensor(INPUT_3)
         self._color_sensor.mode = "RGB-RAW"
         #self._color_sensor.mode = "RGB-AMBIENT"
+        self._leds = Leds()
         self.WHEEL_RADIUS = wheel_radius
         self.WHEEL_SPACING = wheel_spacing
 
@@ -77,3 +79,6 @@ class Bot:
 
     def wav_processor(self):
         Sound.play('t2_learning_computer_x.wav')
+
+    def set_led_color(self, side, color):
+        self._leds.set_color(side, color)
