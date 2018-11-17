@@ -3,7 +3,7 @@ import time
 class Route():
     def __init__(self, bot):
         self.bot = bot
-        self.route_number = "four"
+        self.route_number = "five"
     
     def start(self):
         self.bot.move_forward(36, 50)
