@@ -8,7 +8,7 @@ from math import pi
 # THIRT PARTY IMPORTS
 if not RUN_SIMULATION:
     from ev3dev2.motor import \
-        LargeMotor, MoveSteering, \
+        LargeMotor, MediumMotor, MoveSteering, \
         OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D
     from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
     from ev3dev2.sensor.lego import TouchSensor, UltrasonicSensor, ColorSensor
@@ -27,11 +27,11 @@ RIGHT_ROTATION = 100
 # DEFINITIONS
 class Bot:
     def __init__(self, wheel_radius, wheel_spacing):
-        #self._grip_motor = self._init_motor(OUTPUT_C)
-        #self._arm_motor = self._init_motor(OUTPUT_D)
-        self._steering_drive = MoveSteering(OUTPUT_A, OUTPUT_B)
-        self._touch_sensor = TouchSensor(INPUT_1)
-        self._ultrasonic_sensor = UltrasonicSensor(INPUT_2)
+        self._container_motor = MediumMotor(OUTPUT_C)
+        self._steering_drive = MoveSteering(OUTPUT_D, OUTPUT_A)
+        self._touch_sensor_front = TouchSensor(INPUT_1)
+        self._touch_sensor_top = TouchSensor(INPUT_2)
+        #self._ultrasonic_sensor = UltrasonicSensor(INPUT_2)
         self._color_sensor = ColorSensor(INPUT_3)
         self._color_sensor.mode = "RGB-RAW"
         #self._color_sensor.mode = "RGB-AMBIENT"
@@ -39,14 +39,14 @@ class Bot:
         self.WHEEL_RADIUS = wheel_radius
         self.WHEEL_SPACING = wheel_spacing
 
-    def _init_motor(self, output):
-        m = LargeMotor(output)
-        m.ramp_up_sp = 1000
-        m.ramp_down_sp = 1000
-        return m
+    def empty_container(self):
+        self._container_motorm.on_for_rotations(100, 5)
 
-    def read_touch(self):
-        return self._touch_sensor.is_pressed
+    def read_touch_front(self):
+        return self._touch_sensor_front.is_pressed
+
+    def read_touch_top(self):
+        return self._touch_sensor_front.is_pressed
 
     def read_ultrasonic(self):
         return self._ultrasonic_sensor.distance_centimeters
@@ -79,6 +79,9 @@ class Bot:
 
     def wav_processor(self):
         Sound.play('t2_learning_computer_x.wav')
+
+    def tts(self, text):
+        Sound.speak(text)
 
     def set_led_color(self, side, color):
         self._leds.set_color(side, color)
