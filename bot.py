@@ -71,7 +71,6 @@ class Bot:
         while not tape_found:
             self.move_forward(1, 5, blocking=False)
             red = self.read_color()[0]
-            print("Sensor data:", sens)
             if sens > 100:
                 line_found = True
                 self.stop()
