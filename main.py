@@ -11,10 +11,14 @@ from routes.route5 import Route as route5
 import bot
 
 def main():
+    print("Starting the main application")
     routes = [route1, route2, route3, route4, route5]
+    print("Loaded routes into list")
     current_route = 0
     while True:
         if bot.read_touch_front():
+            print("Got front key press, starting route {}".format(routes[current_route].route_number))
+            bot.tts("Running route {}".format(routes[current_route].route_number))
             routes[current_route].start()
         if bot.read_touch_top():
             if current_route == len(routes):
@@ -22,9 +26,12 @@ def main():
             else:
                 current_route += 1
 
+            print("Got top key press, changing to route {} ".format(routes[current_route].route_number))
+            bot.tts("Changed to route {}".format(routes[current_route].route_number))
+
     time.sleep(0.1)
 
 if __name__ == "__main__":
-    bot.wav_processor()
+    bot.tts("Booting up")
     main()
 
