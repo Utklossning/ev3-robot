@@ -8,7 +8,7 @@ class Route():
     def start(self):
         self.bot.move_forward(45, 50)
         self.bot.rotate_right(45, 50)
-        self.bot.move_forward(36 50)
+        self.bot.move_forward(36, 50)
         self.bot.rotate_right(46, 50)
         self.bot.move_forward(40, 50)
         self.bot.dectect_red_tape()
