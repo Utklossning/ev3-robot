@@ -81,7 +81,7 @@ class Bot:
         Sound.play('t2_learning_computer_x.wav')
 
     def tts(self, text):
-        Sound.speak(text)
+        Sound.speak(text=text)
 
     def set_led_color(self, side, color):
         self._leds.set_color(side, color)
